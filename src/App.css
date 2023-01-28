@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-.App {
+div {
   font-family: "Montserrat", sans-serif;
+}
+.App {
   height: 100vh;
   background-color: whitesmoke;
   display: flex;
@@ -8,15 +10,30 @@
   justify-content: space-between;
 }
 .title {
-  /* font-family: "Montserrat", sans-serif; */
   padding-top: 1rem;
+  margin-left: 3rem;
   display: flex;
   justify-content: center;
   font-size: 3vw;
   font-weight: 1000;
-  background: linear-gradient(to right, #00ff88 40%, #0099ff 30%, #f700ff 80%);
+  background: linear-gradient(to right, #00ff88 0%, #0099ff 50%);
   background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.user {
+  margin-top: 1rem;
+  margin-right: 3rem;
+  font-size: 2vw;
+  background-color: #c1e6ff;
+  border-radius: 2rem;
+  padding: 1rem;
+}
+.head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 .input {
   padding: 0 0 0 1rem;

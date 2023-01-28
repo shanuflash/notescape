@@ -7,6 +7,7 @@ function App() {
     <div className="App">
       <div className="head">
         <div className="title">Todo List</div>
+        <div className="user">Login</div>
       </div>
       <Add />
       <List />

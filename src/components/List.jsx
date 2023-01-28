@@ -1,25 +1,32 @@
 import React from "react";
-import { useRealtime } from "react-supabase";
+import supabase from "../supabase";
 import Delete from "./Delete";
+import { useState, useEffect } from "react";
 export default function List() {
-  const [result, reexecute] = useRealtime("todos");
-  const { data: tasks, error, fetching } = result;
-  // if (fetching) {
-  //   return "Loading";
-  // }
-  // if (!tasks || !tasks.length) {
-  //   return "test";
-  // }
+  const [todo, settodo] = useState([]);
+  const [error, seterror] = useState();
+  async function fetchData() {
+    let { data: data, errors } = await supabase.from("todo").select("*");
+    console.log(data);
+    settodo(data);
+    seterror(errors);
+  }
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div className="list-container">
-      {fetching ? (
-        "Loading..."
-      ) : tasks ? (
-        <div className="list">
-          {tasks.map((todo) => (
-            <div className="item-container">
-              <div className="item">{todo.text}</div>
-              <Delete id={todo.id} />
+      {todo ? (
+        <div>
+          {todo.map((todo) => (
+            <div className="list">
+              {todo.items.map((item) => (
+                <div className="item-container">
+                  <div className="item">{item}</div>
+                  <Delete id={todo.id} />
+                </div>
+              ))}
             </div>
           ))}
         </div>

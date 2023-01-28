@@ -1,19 +1,25 @@
 import React, { StrictMode } from "react";
 import * as ReactDOM from "react-dom/client";
-import { Provider as SupabaseProvider } from "react-supabase";
 import App from "./App";
-import supabase from "./supabase";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Login from "./components/Login";
 
-const container = document.getElementById("root");
-const root = ReactDOM.createRoot(container);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+]);
 
-root.render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <SupabaseProvider value={supabase}>
-      <App />
-    </SupabaseProvider>
+    <RouterProvider router={router} />
     <ToastContainer
       position="bottom-center"
       autoClose={5000}
