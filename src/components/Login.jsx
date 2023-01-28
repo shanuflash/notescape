@@ -7,24 +7,15 @@ export default function Login() {
   const [User, setUser] = useState(null);
   const [Email, setEmail] = useState(null);
   const [Password, setPassword] = useState(null);
-  // const [Au, setAu] = useState(false);
-  const handleSignup = async (e) => {
+  const handleSignin = async (e) => {
     e.preventDefault();
     const { data, error } = await supabase.auth.signInWithPassword({
       email: Email,
       password: Password,
     });
     setUser(data);
-    setUser(data.user.id);
     console.log(error);
-    // if (data.user.id) {
-    //   setAu(true);
-    // }
   };
-  // const handleSession = async (e) => {
-  //   const { data, error } = await supabase.auth.getSession();
-  //   console.log(error);
-  // };
 
   return (
     <>
@@ -36,7 +27,7 @@ export default function Login() {
           </div>
         </div>
         <div className="list-container list-container-misc">
-          <form onSubmit={handleSignup}>
+          <form onSubmit={handleSignin}>
             <input
               className="input"
               type="email"

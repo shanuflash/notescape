@@ -4,21 +4,17 @@ import { useState } from "react";
 import supabase from "../supabase";
 import { Navigate } from "react-router-dom";
 export default function Signup() {
-  const [user, setUser] = useState(null);
-  const [Email, setEmail] = useState(null);
+  const [User, setUser] = useState(null);
   const [Password, setPassword] = useState(null);
-  // const [Au, setAu] = useState(false);
+  const [Email, setEmail] = useState(null);
   const handleSignup = async (e) => {
     e.preventDefault();
     const { data, error } = await supabase.auth.signUp({
       email: Email,
       password: Password,
     });
-    console.log(data);
+    setUser(data);
     console.log(error);
-    // if (data.user.id) {
-    //   setAu(true);
-    // }
   };
 
   return (

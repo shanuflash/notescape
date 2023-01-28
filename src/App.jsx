@@ -6,10 +6,15 @@ import List from "./components/List";
 import { useState, useEffect } from "react";
 import { FiLogOut, FiLogIn } from "react-icons/fi";
 
-
 function App() {
   const [User, setUser] = useState(null);
   const [Email, setEmail] = useState(null);
+  const [Todo, setTodo] = useState([]);
+  const [text, setText] = useState("");
+  const [textarray, setTextarray] = useState([]);
+  const [Password, setPassword] = useState(null);
+  const [loading, setLoading] = useState(false);
+
   const handleLogout = async (e) => {
     e.preventDefault();
     const { error } = await supabase.auth.signOut();
@@ -17,21 +22,40 @@ function App() {
     setUser(null);
     setEmail(null);
   };
-
+  const handleData = async (e) => {
+    const { data, error } = await supabase
+      .from("todo")
+      .select("*")
+      .eq("userid", "d191a72b-de28-4bad-90d8-9dc2eb0fd0a4");
+    setTodo(data[0].items);
+    setTextarray(data[0].items);
+  };
+  const handleAdd = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setTextarray((test) => [...test, text]);
+    setText("");
+  };
+  const handleUpdate = async () => {
+    const { data, error } = await supabase
+      .from("todo")
+      .update([{ items: textarray }])
+      .eq("id", 1);
+    console.log(error);
+  };
+  const handleSession = async (e) => {
+    const { data, error } = await supabase.auth.getSession();
+    console.log(error);
+    setUser(data.session.user.id);
+    setEmail(data.session.user.email);
+  };
   useEffect(() => {
-    const handleSession = async (e) => {
-      const { data, error } = await supabase.auth.getSession();
-      console.log(error);
-      setUser(data.session.user.id);
-      setEmail(data.session.user.email);
-    };
-
     handleSession();
+    handleData();
   }, []);
 
   return (
     <div className="App">
-
       <div className="head">
         <div className="title head-right">Todo List</div>
         <div
@@ -71,10 +95,18 @@ function App() {
           </div>
         </div>
       </div>
-
-      <Add />
-
-      <List />
+      <Add
+        {...{
+          handleAdd,
+          handleUpdate,
+          textarray,
+          loading,
+          setLoading,
+          text,
+          setText,
+        }}
+      />
+      <List {...{ Todo }} />
     </div>
   );
 }
