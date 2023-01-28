@@ -6,13 +6,21 @@ import List from "./components/List";
 import { useState, useEffect } from "react";
 import { FiLogOut, FiLogIn } from "react-icons/fi";
 
+/*
+------------------------TODO--------------------------
+- Create table entry for every use signed in.
+- Data for other users
+- Redirect on Login page
+- Login, Sign Up in one page (or link)
+------------------------------------------------------
+*/
+
 function App() {
   const [User, setUser] = useState(null);
   const [Email, setEmail] = useState(null);
   const [Todo, setTodo] = useState([]);
   const [text, setText] = useState("");
   const [textarray, setTextarray] = useState([]);
-  const [Password, setPassword] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const handleLogout = async (e) => {
