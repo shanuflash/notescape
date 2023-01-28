@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import "./App.css";
 import supabase from "./supabase";
 import Add from "./components/Add";
 import List from "./components/List";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { FiLogOut, FiLogIn } from "react-icons/fi";
 
