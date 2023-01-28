@@ -7,12 +7,14 @@ import { useState, useEffect } from "react";
 import { FiLogOut, FiLogIn } from "react-icons/fi";
 
 /*
-------------------------TODO--------------------------
+--------------------------TODO----------------------------
 - Create table entry for every use signed in.
 - Data for other users
 - Redirect on Login page
 - Login, Sign Up in one page (or link)
-------------------------------------------------------
+- Fix delete
+- User profile (change info, passwd reset, change email)
+----------------------------------------------------------
 */
 
 function App() {
