@@ -4,27 +4,27 @@ import Delete from "./Delete";
 import { useState, useEffect } from "react";
 export default function List() {
   const [todo, settodo] = useState([]);
-  const [error, seterror] = useState();
-  async function fetchData() {
-    let { data: data, errors } = await supabase.from("todo").select("*");
-    console.log(data);
+  const fetchData = async () => {
+    const { data, error } = await supabase
+      .from("todo")
+      .select("*")
+      .eq("userid", "d191a72b-de28-4bad-90d8-9dc2eb0fd0a4");
     settodo(data);
-    seterror(errors);
-  }
+  };
   useEffect(() => {
     fetchData();
   }, []);
 
   return (
-    <div className="list-container">
+    <div>
       {todo ? (
-        <div>
+        <div className="list-container">
           {todo.map((todo) => (
             <div className="list">
               {todo.items.map((item) => (
                 <div className="item-container">
                   <div className="item">{item}</div>
-                  <Delete id={todo.id} />
+                  {/* <Delete /> */}
                 </div>
               ))}
             </div>
