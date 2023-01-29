@@ -23,8 +23,10 @@ export default function Login() {
       password: Password,
     });
     {
-      !error && setUser(data);
+      !error && setUser(data.user.id);
     }
+    const { error: err } = await supabase.from("todo").insert({ userid: User });
+    console.log(err);
   };
 
   return (
