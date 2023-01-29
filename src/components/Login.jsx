@@ -16,7 +16,7 @@ export default function Login() {
     });
     setUser(data.user.id);
     setPassword(null);
-    console.log(error);
+    console.log("handleSignin", error);
   };
 
   const handleSignup = async (e) => {
@@ -25,13 +25,13 @@ export default function Login() {
       email: Email,
       password: Password,
     });
-    console.log(error);
+    console.log("handleSignup", error);
     setPassword(null);
     if (!error) {
       const { error: err } = await supabase
         .from("todo")
         .insert({ items: [], userid: data.user.id });
-      console.log(err);
+      console.log("handleSignup-CreateRow", err);
       setUser(data.user.id);
     }
   };

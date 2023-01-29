@@ -22,7 +22,7 @@ function App() {
   const handleLogout = async (e) => {
     e.preventDefault();
     const { error } = await supabase.auth.signOut();
-    console.log(error);
+    console.log("handleLogout", error);
     setUser(null);
     setEmail(null);
     setTodo([]);
@@ -34,7 +34,7 @@ function App() {
       .select("*")
       .eq("userid", User);
     setTodo(data[0].items);
-    console.log(error);
+    console.log("handleData", error);
   };
 
   const handleAdd = (e) => {
@@ -48,12 +48,12 @@ function App() {
       .from("todo")
       .update([{ items: Todo }])
       .eq("userid", User);
-    console.log(error);
+    console.log("handleUpdate", error);
   };
 
   const handleSession = async (e) => {
     const { data, error } = await supabase.auth.getSession();
-    console.log(error);
+    console.log("handleSession", error);
     setUser(data.session.user.id);
     setEmail(data.session.user.email);
   };
