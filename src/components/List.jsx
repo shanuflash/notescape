@@ -35,7 +35,6 @@ export default function List({
                 >
                   <FaTrash />
                 </button>
-                {/* <Delete {...{ item, textarray, setTextarray }} /> */}
               </div>
             ))}
           </div>
