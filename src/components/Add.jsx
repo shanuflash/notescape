@@ -1,7 +1,6 @@
 import React from "react";
-import supabase from "../supabase";
-import { useState, useEffect } from "react";
-//todo: login
+import { useEffect } from "react";
+
 export default function Add({
   handleAdd,
   handleUpdate,

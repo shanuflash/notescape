@@ -1,18 +1,9 @@
 import React, { useEffect } from "react";
-// import Delete from "./Delete";
 import { FaTrash } from "react-icons/fa";
 
-export default function List({
-  User,
-  textarray,
-  setTextarray,
-  handleData,
-  handleUpdate,
-  Todo,
-}) {
+export default function List({ User, textarray, setTextarray, handleUpdate }) {
   useEffect(() => {
     handleUpdate();
-    // handleData();
   }, [textarray]);
 
   const handleDelete = (item) => {
@@ -24,7 +15,7 @@ export default function List({
       <div className="list-container">
         {User ? (
           <div className="list">
-            {Todo.map((item) => (
+            {textarray.map((item) => (
               <div className="item-container">
                 <div key={item} className="item">
                   {item}
