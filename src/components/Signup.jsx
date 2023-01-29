@@ -13,8 +13,10 @@ export default function Signup() {
       email: Email,
       password: Password,
     });
-    setUser(data);
+    setUser(data.user.id);
     console.log(error);
+    const { error: err } = await supabase.from("todo").insert({ userid: User });
+    console.log(err);
   };
 
   return (
