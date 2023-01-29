@@ -16,10 +16,11 @@ div {
   justify-content: center;
   font-size: 3vw;
   font-weight: 1000;
-  background: linear-gradient(40deg, #00ff88 0%, #0099ff 50%);
-  background-clip: text;
+  color: #60bfff;
+  /* color: #0099ff; */
+  /* background-clip: text;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; */
 }
 .user {
   /* margin-top: 1rem; */
@@ -50,7 +51,9 @@ div {
   outline-color: #0099ff3f;
 }
 .input-misc {
-  width: 30vw;
+  height: 4rem;
+  font-size: 2rem;
+  width: 50vw;
   border-radius: 2rem;
 }
 .input-button-misc {
@@ -60,7 +63,7 @@ div {
   border: none;
   border-radius: 2rem;
   height: 3rem;
-  width: 13vw;
+  width: 25vw;
   background-color: #36aeff;
 }
 form {
