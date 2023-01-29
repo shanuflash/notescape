@@ -9,6 +9,7 @@ export default function Add({ handleAdd, text, setText }) {
           value={text}
           type="text"
           name="todoinput"
+          autocomplete="off"
           onChange={(e) => setText((prev) => e.target.value)}
         />
         <button className="input-button" type="submit">
