@@ -1,8 +1,8 @@
-import React from "react";
 import "../App.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import supabase from "../supabase";
 import { Navigate } from "react-router-dom";
+
 export default function Login() {
   const [User, setUser] = useState(null);
   const [Email, setEmail] = useState(null);

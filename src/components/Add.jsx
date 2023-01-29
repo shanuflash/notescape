@@ -1,22 +1,6 @@
 import React from "react";
-import { useEffect } from "react";
 
-export default function Add({
-  handleAdd,
-  handleUpdate,
-  Todo,
-  loading,
-  setLoading,
-  text,
-  setText,
-}) {
-  useEffect(() => {
-    if (loading === true) {
-      handleUpdate();
-    }
-    setLoading(false);
-  }, [Todo]);
-
+export default function Add({ handleAdd, text, setText }) {
   return (
     <div>
       <form onSubmit={handleAdd} className="form-container">

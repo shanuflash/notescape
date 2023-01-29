@@ -8,6 +8,7 @@ import { FiLogOut, FiLogIn } from "react-icons/fi";
 
 /*
 --------------------------TODO----------------------------
+- Responsive (mobile)
 - User profile (change info, passwd reset, change email)
 ----------------------------------------------------------
 */
@@ -17,7 +18,6 @@ function App() {
   const [Email, setEmail] = useState(null);
   const [Todo, setTodo] = useState([]);
   const [text, setText] = useState("");
-  const [loading, setLoading] = useState(false);
 
   const handleLogout = async (e) => {
     e.preventDefault();
@@ -39,7 +39,6 @@ function App() {
 
   const handleAdd = (e) => {
     e.preventDefault();
-    setLoading(true);
     setTodo((test) => [...test, text]);
     setText("");
   };
@@ -58,6 +57,10 @@ function App() {
     setUser(data.session.user.id);
     setEmail(data.session.user.email);
   };
+
+  useEffect(() => {
+    handleUpdate();
+  }, [Todo]);
 
   useEffect(() => {
     handleSession();
@@ -111,19 +114,8 @@ function App() {
           </div>
         </div>
       </div>
-      <Add
-        {...{
-          handleAdd,
-          handleUpdate,
-          Todo,
-          loading,
-          setLoading,
-          text,
-          setText,
-          User,
-        }}
-      />
-      <List {...{ User, Todo, handleData, handleUpdate, Todo, setTodo }} />
+      <Add {...{ handleAdd, text, setText }} />
+      <List {...{ User, Todo, setTodo }} />
     </div>
   );
 }

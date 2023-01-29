@@ -1,11 +1,6 @@
-import React, { useEffect } from "react";
 import { FaTrash } from "react-icons/fa";
 
-export default function List({ User, Todo, setTodo, handleUpdate }) {
-  useEffect(() => {
-    handleUpdate();
-  }, [Todo]);
-
+export default function List({ User, Todo, setTodo }) {
   const handleDelete = (item) => {
     setTodo(Todo.filter((any) => any !== item));
   };
