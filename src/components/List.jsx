@@ -14,9 +14,7 @@ export default function List({
   }, [textarray]);
   const handleDelete = (item) => {
     console.log(textarray);
-    setTextarray((pre) => {
-      return pre.filter((any) => any !== item);
-    });
+    setTextarray(textarray.filter((any) => any !== item));
     console.log(textarray);
   };
   return (
