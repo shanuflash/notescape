@@ -3,20 +3,22 @@ import React, { useEffect } from "react";
 import { FaTrash } from "react-icons/fa";
 
 export default function List({
-  Todo,
   User,
   textarray,
-  handleData,
   setTextarray,
+  handleData,
+  handleUpdate,
+  Todo,
 }) {
   useEffect(() => {
-    handleData();
+    handleUpdate();
+    // handleData();
   }, [textarray]);
+
   const handleDelete = (item) => {
-    console.log(textarray);
     setTextarray(textarray.filter((any) => any !== item));
-    console.log(textarray);
   };
+
   return (
     <div>
       <div className="list-container">

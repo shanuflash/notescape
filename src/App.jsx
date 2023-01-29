@@ -123,7 +123,9 @@ function App() {
           User,
         }}
       />
-      <List {...{ Todo, User, textarray, handleData, setTextarray }} />
+      <List
+        {...{ User, textarray, handleData, handleUpdate, Todo, setTextarray }}
+      />
     </div>
   );
 }
