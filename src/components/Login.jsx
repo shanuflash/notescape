@@ -22,11 +22,14 @@ export default function Login() {
       email: Email,
       password: Password,
     });
-    {
-      !error && setUser(data.user.id);
+    console.log(data);
+    if (!error) {
+      const { error: err } = await supabase
+        .from("todo")
+        .insert({ items: [], userid: data.user.id });
+      console.log(err);
+      setUser(data.user.id);
     }
-    const { error: err } = await supabase.from("todo").insert({ userid: User });
-    console.log(err);
   };
 
   return (
