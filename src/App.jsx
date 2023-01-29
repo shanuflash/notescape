@@ -38,8 +38,6 @@ function App() {
       .from("todo")
       .select("*")
       .eq("userid", User);
-    console.log("handledata:", data);
-    console.log(data[0].items);
     setTodo(data[0].items);
     setTextarray(data[0].items);
   };
