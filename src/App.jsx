@@ -8,10 +8,10 @@ import { FiLogOut, FiLogIn } from "react-icons/fi";
 
 /*
 --------------------------TODO----------------------------
-- Create table entry for every use signed in.
-- Data for other users
-- Redirect on Login page
-- Login, Sign Up in one page (or link)
+- Create table entry for every use signed in. (done)
+- Data for other users (done)
+- Redirect on Login page (done)
+- Login, Sign Up in one page (done)
 - Fix delete
 - User profile (change info, passwd reset, change email)
 ----------------------------------------------------------
@@ -123,7 +123,7 @@ function App() {
           User,
         }}
       />
-      <List {...{ Todo, User }} />
+      <List {...{ Todo, User, textarray, handleData }} />
     </div>
   );
 }
