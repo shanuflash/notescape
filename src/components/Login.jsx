@@ -1,6 +1,6 @@
 import React from "react";
 import "../App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import supabase from "../supabase";
 import { Navigate } from "react-router-dom";
 export default function Login() {
@@ -16,41 +16,74 @@ export default function Login() {
     setUser(data);
     console.log(error);
   };
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    const { data, error } = await supabase.auth.signUp({
+      email: Email,
+      password: Password,
+    });
+    {
+      !error && setUser(data);
+    }
+  };
 
   return (
     <>
-      {/* {Au ? ( */}
-      <>
-        <div className="head">
-          <div style={{ paddingBottom: "1rem" }} className="title">
-            Login
+      {!User ? (
+        <>
+          <div className="head">
+            <div style={{}} className="title head-right">
+              Login / Sign Up
+            </div>
           </div>
-        </div>
-        <div className="list-container list-container-misc">
-          <form onSubmit={handleSignin}>
-            <input
-              className="input"
-              type="email"
-              value={Email}
-              onChange={(e) => setEmail((prev) => e.target.value)}
-              placeholder="Email"
-            />
-            <input
-              className="input"
-              type="password"
-              value={Password}
-              onChange={(e) => setPassword((prev) => e.target.value)}
-              placeholder="Password"
-            />
-            <button className="input-button" type="submit">
-              +
-            </button>
-          </form>
-        </div>
-      </>
-      {/* ) : (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-evenly",
+            }}
+            className="list-container list-container-misc"
+          >
+            <form
+              style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+              className="signin"
+            >
+              <input
+                className="input input-misc"
+                type="email"
+                value={Email}
+                onChange={(e) => setEmail((prev) => e.target.value)}
+                placeholder="Email"
+              />
+              <input
+                className="input input-misc"
+                type="password"
+                value={Password}
+                onChange={(e) => setPassword((prev) => e.target.value)}
+                placeholder="Password"
+              />
+              <div style={{ display: "flex", gap: "1rem" }}>
+                <button
+                  onClick={handleSignin}
+                  className="input-button-misc"
+                  type="submit"
+                >
+                  Login
+                </button>
+                <button
+                  onClick={handleSignup}
+                  className="input-button-misc"
+                  type="submit"
+                >
+                  Sign Up
+                </button>
+              </div>
+            </form>
+          </div>
+        </>
+      ) : (
         <Navigate replace to="/" />
-      )} */}
+      )}
     </>
   );
 }

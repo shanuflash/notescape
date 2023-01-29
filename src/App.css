@@ -49,6 +49,20 @@ div {
   /* outline: none; */
   outline-color: #0099ff3f;
 }
+.input-misc {
+  width: 30vw;
+  border-radius: 2rem;
+}
+.input-button-misc {
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  height: 3rem;
+  width: 13vw;
+  background-color: #36aeff;
+}
 form {
   padding-top: 1rem;
   display: flex;
@@ -84,6 +98,7 @@ form {
   border: 1px solid #36aeff;
 }
 .list-container-misc {
+  margin-top: 1rem;
   height: 78.7vh !important;
 }
 

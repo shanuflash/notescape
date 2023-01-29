@@ -31,12 +31,15 @@ function App() {
     console.log(error);
     setUser(null);
     setEmail(null);
+    setTodo([]);
   };
   const handleData = async (e) => {
     const { data, error } = await supabase
       .from("todo")
       .select("*")
-      .eq("userid", "d191a72b-de28-4bad-90d8-9dc2eb0fd0a4");
+      .eq("userid", User);
+    console.log("handledata:", data);
+    console.log(data[0].items);
     setTodo(data[0].items);
     setTextarray(data[0].items);
   };
@@ -50,7 +53,7 @@ function App() {
     const { data, error } = await supabase
       .from("todo")
       .update([{ items: textarray }])
-      .eq("id", 1);
+      .eq("userid", User);
     console.log(error);
   };
   const handleSession = async (e) => {
@@ -59,6 +62,10 @@ function App() {
     setUser(data.session.user.id);
     setEmail(data.session.user.email);
   };
+  useEffect(() => {
+    handleSession();
+    handleData();
+  }, [User]);
   useEffect(() => {
     handleSession();
     handleData();
@@ -74,7 +81,12 @@ function App() {
         >
           <div
             className="user"
-            style={{ display: "flex", alignItems: "center", gap: "1rem" }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "1rem",
+            }}
           >
             {!User ? (
               <Link
@@ -89,18 +101,14 @@ function App() {
             <div
               style={{
                 display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
                 background: "white",
                 padding: "1rem",
                 borderRadius: "2rem",
               }}
             >
-              {User ? (
-                <FiLogOut onClick={handleLogout} />
-              ) : (
-                <Link to="/Login">
-                  <FiLogIn />
-                </Link>
-              )}
+              {User ? <FiLogOut onClick={handleLogout} /> : <FiLogIn />}
             </div>
           </div>
         </div>
@@ -114,9 +122,10 @@ function App() {
           setLoading,
           text,
           setText,
+          User,
         }}
       />
-      <List {...{ Todo }} />
+      <List {...{ Todo, User }} />
     </div>
   );
 }

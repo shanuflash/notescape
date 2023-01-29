@@ -1,10 +1,10 @@
 import React from "react";
 import Delete from "./Delete";
-export default function List({ Todo }) {
+export default function List({ Todo, User }) {
   return (
     <div>
-      {Todo ? (
-        <div className="list-container">
+      <div className="list-container">
+        {User ? (
           <div className="list">
             {Todo.map((item) => (
               <div className="item-container">
@@ -15,10 +15,10 @@ export default function List({ Todo }) {
               </div>
             ))}
           </div>
-        </div>
-      ) : (
-        "No data found"
-      )}
+        ) : (
+          <div>Login to continue</div>
+        )}
+      </div>
     </div>
   );
 }
