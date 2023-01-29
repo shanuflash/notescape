@@ -4,7 +4,7 @@ import { useEffect } from "react";
 export default function Add({
   handleAdd,
   handleUpdate,
-  textarray,
+  Todo,
   loading,
   setLoading,
   text,
@@ -15,7 +15,8 @@ export default function Add({
       handleUpdate();
     }
     setLoading(false);
-  }, [textarray]);
+  }, [Todo]);
+
   return (
     <div>
       <form onSubmit={handleAdd} className="form-container">

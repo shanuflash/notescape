@@ -7,22 +7,26 @@ export default function Login() {
   const [User, setUser] = useState(null);
   const [Email, setEmail] = useState(null);
   const [Password, setPassword] = useState(null);
+
   const handleSignin = async (e) => {
     e.preventDefault();
     const { data, error } = await supabase.auth.signInWithPassword({
       email: Email,
       password: Password,
     });
-    setUser(data);
+    setUser(data.user.id);
+    setPassword(null);
     console.log(error);
   };
+
   const handleSignup = async (e) => {
     e.preventDefault();
     const { data, error } = await supabase.auth.signUp({
       email: Email,
       password: Password,
     });
-    console.log(data);
+    console.log(error);
+    setPassword(null);
     if (!error) {
       const { error: err } = await supabase
         .from("todo")

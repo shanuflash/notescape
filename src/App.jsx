@@ -8,11 +8,6 @@ import { FiLogOut, FiLogIn } from "react-icons/fi";
 
 /*
 --------------------------TODO----------------------------
-- Create table entry for every use signed in. (done)
-- Data for other users (done)
-- Redirect on Login page (done)
-- Login, Sign Up in one page (done)
-- Fix delete
 - User profile (change info, passwd reset, change email)
 ----------------------------------------------------------
 */
@@ -22,7 +17,6 @@ function App() {
   const [Email, setEmail] = useState(null);
   const [Todo, setTodo] = useState([]);
   const [text, setText] = useState("");
-  const [textarray, setTextarray] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const handleLogout = async (e) => {
@@ -33,37 +27,43 @@ function App() {
     setEmail(null);
     setTodo([]);
   };
+
   const handleData = async (e) => {
     const { data, error } = await supabase
       .from("todo")
       .select("*")
       .eq("userid", User);
     setTodo(data[0].items);
-    setTextarray(data[0].items);
+    console.log(error);
   };
+
   const handleAdd = (e) => {
     e.preventDefault();
     setLoading(true);
-    setTextarray((test) => [...test, text]);
+    setTodo((test) => [...test, text]);
     setText("");
   };
+
   const handleUpdate = async () => {
     const { data, error } = await supabase
       .from("todo")
-      .update([{ items: textarray }])
+      .update([{ items: Todo }])
       .eq("userid", User);
     console.log(error);
   };
+
   const handleSession = async (e) => {
     const { data, error } = await supabase.auth.getSession();
     console.log(error);
     setUser(data.session.user.id);
     setEmail(data.session.user.email);
   };
+
   useEffect(() => {
     handleSession();
     handleData();
   }, [User]);
+
   useEffect(() => {
     handleSession();
     handleData();
@@ -115,7 +115,7 @@ function App() {
         {...{
           handleAdd,
           handleUpdate,
-          textarray,
+          Todo,
           loading,
           setLoading,
           text,
@@ -123,9 +123,7 @@ function App() {
           User,
         }}
       />
-      <List
-        {...{ User, textarray, handleData, handleUpdate, Todo, setTextarray }}
-      />
+      <List {...{ User, Todo, handleData, handleUpdate, Todo, setTodo }} />
     </div>
   );
 }

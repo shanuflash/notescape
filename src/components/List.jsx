@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { FaTrash } from "react-icons/fa";
 
-export default function List({ User, textarray, setTextarray, handleUpdate }) {
+export default function List({ User, Todo, setTodo, handleUpdate }) {
   useEffect(() => {
     handleUpdate();
-  }, [textarray]);
+  }, [Todo]);
 
   const handleDelete = (item) => {
-    setTextarray(textarray.filter((any) => any !== item));
+    setTodo(Todo.filter((any) => any !== item));
   };
 
   return (
@@ -15,7 +15,7 @@ export default function List({ User, textarray, setTextarray, handleUpdate }) {
       <div className="list-container">
         {User ? (
           <div className="list">
-            {textarray.map((item) => (
+            {Todo.map((item) => (
               <div className="item-container">
                 <div key={item} className="item">
                   {item}
