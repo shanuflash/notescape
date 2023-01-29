@@ -9,6 +9,8 @@ import { FiLogOut, FiLogIn } from "react-icons/fi";
 /*
 --------------------------TODO----------------------------
 - Responsive (mobile)
+- Error parsing
+- Toastify
 - User profile (change info, passwd reset, change email)
 ----------------------------------------------------------
 */
