@@ -1,7 +1,13 @@
 import React, { useEffect } from "react";
 import Delete from "./Delete";
 
-export default function List({ Todo, User, textarray, handleData }) {
+export default function List({
+  Todo,
+  User,
+  textarray,
+  handleData,
+  setTextarray,
+}) {
   useEffect(() => {
     handleData();
   }, [textarray]);
@@ -15,7 +21,7 @@ export default function List({ Todo, User, textarray, handleData }) {
                 <div key={item} className="item">
                   {item}
                 </div>
-                <Delete />
+                <Delete {...{ item, textarray, setTextarray }} />
               </div>
             ))}
           </div>
