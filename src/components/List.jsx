@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import Delete from "./Delete";
+// import Delete from "./Delete";
+import { FaTrash } from "react-icons/fa";
 
 export default function List({
   Todo,
@@ -11,6 +12,13 @@ export default function List({
   useEffect(() => {
     handleData();
   }, [textarray]);
+  const handleDelete = (item) => {
+    console.log(textarray);
+    setTextarray((pre) => {
+      return pre.filter((any) => any !== item);
+    });
+    console.log(textarray);
+  };
   return (
     <div>
       <div className="list-container">
@@ -21,7 +29,13 @@ export default function List({
                 <div key={item} className="item">
                   {item}
                 </div>
-                <Delete {...{ item, textarray, setTextarray }} />
+                <button
+                  className="item-button"
+                  onClick={() => handleDelete(item)}
+                >
+                  <FaTrash />
+                </button>
+                {/* <Delete {...{ item, textarray, setTextarray }} /> */}
               </div>
             ))}
           </div>
