@@ -10,25 +10,26 @@ div {
   justify-content: space-between;
 }
 .title {
-  padding-top: 1rem;
-  margin-left: 3rem;
+  font-size: 2vw;
+  background-color: #c1e6ff;
+  border-radius: 2rem;
   display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: 3vw;
-  font-weight: 500;
-  color: #36aeff;
-  /* color: #0099ff; */
-  /* background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; */
+  padding: 0.9rem 2rem 0.9rem 3rem;
+  margin-top: 1rem;
+  border-radius: 0 2rem 2rem 0;
 }
 .user {
-  /* margin-top: 1rem; */
   margin-right: 3rem;
   font-size: 2vw;
   background-color: #c1e6ff;
   border-radius: 2rem;
   padding: 0 0 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .head {
@@ -37,9 +38,7 @@ div {
   justify-content: space-between;
   align-items: center;
 }
-/* .Add {
-  margin-bottom: 2rem;
-} */
+
 .input {
   padding: 0 0 0 1rem;
   border: none;

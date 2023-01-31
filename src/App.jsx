@@ -79,20 +79,12 @@ function App() {
   return (
     <div className="App">
       <div className="head">
-        <div className="title head-right">Notes</div>
+        <div className="title">Notes - (React & Supabase)</div>
         <div
           className="head-left"
           style={{ display: "flex", alignItems: "center", marginTop: "1rem" }}
         >
-          <div
-            className="user"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "1rem",
-            }}
-          >
+          <div className="user">
             {!User ? (
               <Link
                 style={{ textDecoration: "none", color: "black" }}
