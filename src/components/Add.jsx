@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Add({ handleAdd, text, setText }) {
   return (
-    <div>
+    <div className="Add">
       <form onSubmit={handleAdd} className="form-container">
         <input
           className="input"

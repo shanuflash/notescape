@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 
 /*
 --------------------------TODO----------------------------
+- Edit function
 - Responsive (mobile)
 - User profile (change info, passwd reset, change email)
 ----------------------------------------------------------
@@ -78,7 +79,7 @@ function App() {
   return (
     <div className="App">
       <div className="head">
-        <div className="title head-right">Todo List</div>
+        <div className="title head-right">Notes</div>
         <div
           className="head-left"
           style={{ display: "flex", alignItems: "center", marginTop: "1rem" }}

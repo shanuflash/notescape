@@ -2,8 +2,8 @@ import { FaTrash } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 export default function List({ User, Todo, setTodo }) {
-  const handleDelete = (item) => {
-    setTodo(Todo.filter((any) => any !== item));
+  const handleDelete = (index) => {
+    setTodo(Todo.filter((any, i) => i !== index));
   };
 
   return (
@@ -11,7 +11,7 @@ export default function List({ User, Todo, setTodo }) {
       <div className="list-container">
         {User ? (
           <div className="list">
-            {Todo.map((item) => (
+            {Todo.map((item, index) => (
               <div className="item-container">
                 <div key={item} className="item">
                   {item}
@@ -19,7 +19,7 @@ export default function List({ User, Todo, setTodo }) {
                 <button
                   className="item-button"
                   onClick={() => {
-                    handleDelete(item);
+                    handleDelete(index);
                     toast.error("Note deleted!");
                   }}
                 >
