@@ -111,7 +111,7 @@ function App() {
         </div>
       </div>
       <Add {...{ handleAdd, text, setText }} />
-      <List {...{ User, Todo, setTodo }} />
+      <List {...{ User, Todo, setTodo, text, setText }} />
     </div>
   );
 }
