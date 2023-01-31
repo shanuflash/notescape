@@ -1,4 +1,5 @@
 import { FaTrash } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 export default function List({ User, Todo, setTodo }) {
   const handleDelete = (item) => {
@@ -17,7 +18,10 @@ export default function List({ User, Todo, setTodo }) {
                 </div>
                 <button
                   className="item-button"
-                  onClick={() => handleDelete(item)}
+                  onClick={() => {
+                    handleDelete(item);
+                    toast.error("Note deleted!");
+                  }}
                 >
                   <FaTrash />
                 </button>

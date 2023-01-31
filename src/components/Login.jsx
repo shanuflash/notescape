@@ -2,6 +2,7 @@ import "../App.css";
 import { useState } from "react";
 import supabase from "../supabase";
 import { Navigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function Login() {
   const [User, setUser] = useState(null);
@@ -14,9 +15,10 @@ export default function Login() {
       email: Email,
       password: Password,
     });
+    if (error) toast.error(error.message);
+    else toast.info("Successfully logged in!");
     setUser(data.user.id);
     setPassword(null);
-    console.log("handleSignin", error);
   };
 
   const handleSignup = async (e) => {
@@ -25,13 +27,14 @@ export default function Login() {
       email: Email,
       password: Password,
     });
-    console.log("handleSignup", error);
     setPassword(null);
-    if (!error) {
+    if (error) toast.error(error.message);
+    else {
+      toast.info("Successfully signed up!");
       const { error: err } = await supabase
         .from("todo")
         .insert({ items: [], userid: data.user.id });
-      console.log("handleSignup-CreateRow", err);
+      toast.error("Unexpected error!");
       setUser(data.user.id);
     }
   };

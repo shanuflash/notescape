@@ -5,6 +5,7 @@ import List from "./components/List";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { FiLogOut, FiLogIn } from "react-icons/fi";
+import { toast } from "react-toastify";
 
 /*
 --------------------------TODO----------------------------
@@ -24,7 +25,8 @@ function App() {
   const handleLogout = async (e) => {
     e.preventDefault();
     const { error } = await supabase.auth.signOut();
-    console.log("handleLogout", error);
+    if (error) toast.error(error.message);
+    else toast.info("Successfully logged out!");
     setUser(null);
     setEmail(null);
     setTodo([]);
@@ -36,12 +38,13 @@ function App() {
       .select("*")
       .eq("userid", User);
     setTodo(data[0].items);
-    console.log("handleData", error);
+    if (error) toast.error(error.message);
   };
 
   const handleAdd = (e) => {
     e.preventDefault();
     setTodo((test) => [...test, text]);
+    toast.success("Note added!");
     setText("");
   };
 
@@ -50,12 +53,12 @@ function App() {
       .from("todo")
       .update([{ items: Todo }])
       .eq("userid", User);
-    console.log("handleUpdate", error);
+    if (error) toast.error(error.message);
   };
 
   const handleSession = async (e) => {
     const { data, error } = await supabase.auth.getSession();
-    console.log("handleSession", error);
+    if (error) toast.error(error.message);
     setUser(data.session.user.id);
     setEmail(data.session.user.email);
   };
