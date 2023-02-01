@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { FiLogOut, FiLogIn } from "react-icons/fi";
 import { toast } from "react-toastify";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 /*
 --------------------------TODO----------------------------
@@ -16,9 +18,11 @@ import { toast } from "react-toastify";
 */
 
 function App() {
+  AOS.init();
   const [User, setUser] = useState(null);
   const [Email, setEmail] = useState(null);
   const [Todo, setTodo] = useState([]);
+  const [Trash, setTrash] = useState([]);
   const [text, setText] = useState("");
 
   const handleLogout = async (e) => {
@@ -83,8 +87,11 @@ function App() {
   return (
     <div className="App">
       <div className="head">
-        <div className="title">Notes - (React & Supabase)</div>
+        <div className="title" data-aos="fade-right">
+          Notes - (React & Supabase)
+        </div>
         <div
+          data-aos="fade-left"
           className="head-left"
           style={{ display: "flex", alignItems: "center", marginTop: "1rem" }}
         >
@@ -115,7 +122,7 @@ function App() {
         </div>
       </div>
       <Add {...{ handleAdd, text, setText }} />
-      <List {...{ User, Todo, setTodo, handleData }} />
+      <List {...{ User, Todo, setTodo, handleData, Trash, setTrash }} />
     </div>
   );
 }

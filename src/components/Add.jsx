@@ -1,9 +1,16 @@
 import React from "react";
-
+import { ImBin } from "react-icons/Im";
 export default function Add({ handleAdd, text, setText }) {
+  const handleTrash = (e) => {
+    e.preventDefault();
+  };
   return (
-    <div className="Add">
-      <form onSubmit={handleAdd} className="form-container">
+    <div className="Add" data-aos="fade-down">
+      <form className="form-container">
+        {/* <button className="trash" onClick={handleTrash}>
+          <div>Trash</div>
+          <ImBin />
+        </button> */}
         <input
           className="input"
           value={text}
@@ -13,7 +20,7 @@ export default function Add({ handleAdd, text, setText }) {
           placeholder="Type here"
           onChange={(e) => setText((prev) => e.target.value)}
         />
-        <button className="input-button" type="submit">
+        <button className="input-button" onClick={handleAdd}>
           +
         </button>
       </form>

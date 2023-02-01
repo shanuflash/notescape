@@ -2,12 +2,23 @@ import { FaTrash, FaEdit } from "react-icons/fa";
 import { TiTick } from "react-icons/ti";
 import { toast } from "react-toastify";
 import { useState } from "react";
+import AOS from "aos";
+// import "aos/dist/aos.css";
 
-export default function List({ User, Todo, setTodo, handleData }) {
+export default function List({
+  User,
+  Todo,
+  setTodo,
+  handleData,
+  Trash,
+  setTrash,
+}) {
+  AOS.init();
   const [Editable, setEditable] = useState(false);
   const [dex, setdex] = useState(-1);
   const [Edit, setEdit] = useState("");
-  const handleDelete = (index) => {
+  const handleDelete = (item, index) => {
+    setTrash((test) => [...test, item]);
     setTodo(Todo.filter((any, i) => i !== index));
   };
   const handleEdit = (index) => {
@@ -32,10 +43,10 @@ export default function List({ User, Todo, setTodo, handleData }) {
               <div className="item-container">
                 <div
                   contentEditable={dex === index && Editable}
-                  // onClick={(e) => setText(item)}
                   onInput={(e) => {
                     setEdit((prev) => e.target.innerText);
                   }}
+                  // data-aos="fade-up"
                   key={item}
                   className="item"
                   style={{ border: dex === index ? "1px black solid" : "" }}
@@ -43,7 +54,7 @@ export default function List({ User, Todo, setTodo, handleData }) {
                   {item}
                 </div>
                 <button
-                  // disabled={dex === index ? "false" : "true"}
+                  // data-aos="fade-up"
                   className="item-button"
                   style={{
                     borderRadius: "0",
@@ -80,9 +91,10 @@ export default function List({ User, Todo, setTodo, handleData }) {
                   )}
                 </button>
                 <button
+                  // data-aos="fade-up"
                   className="item-button"
                   onClick={() => {
-                    handleDelete(index);
+                    handleDelete(item, index);
                     toast.error("Note deleted!");
                   }}
                 >

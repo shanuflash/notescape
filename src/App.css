@@ -5,6 +5,7 @@ div {
 }
 
 .App {
+  overflow: hidden;
   height: 100vh;
   background-color: whitesmoke;
   display: flex;
@@ -35,7 +36,18 @@ div {
   justify-content: center;
   gap: 1rem;
 }
-
+.trash {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 2rem;
+  background-color: #c1e6ff;
+  border: none;
+  padding: 1rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  gap: 0.5rem;
+}
 .head {
   display: flex;
   flex-direction: row;
