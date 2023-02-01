@@ -51,6 +51,7 @@ export default function List({ User, Todo, setTodo, handleData }) {
                   }}
                   onClick={(e) => {
                     if (Edit === "" && Editable) {
+                      toast.error("Note cannot be empty!");
                       Edit.forceUpdate();
                       handleData();
                     }
