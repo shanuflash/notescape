@@ -25,7 +25,7 @@ function App() {
   const [Todo, setTodo] = useState([]);
   const [Trash, setTrash] = useState([]);
   const [text, setText] = useState("");
-  const { Email } = useContext(TestProvider);
+  const { Email, setEmail } = useContext(TestProvider);
 
   const handleLogout = async (e) => {
     e.preventDefault();

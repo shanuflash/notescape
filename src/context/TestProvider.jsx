@@ -5,7 +5,7 @@ const TestContext = createContext();
 // export function useTest() {
 //   return useContext(TestContext);
 // }
-export function TestProvider({ children }) {
+export function TestProvider({ props }) {
   //   const [User, setUser] = useState(null);
   const [Email, setEmail] = useState(null);
   //   const [Todo, setTodo] = useState([]);
@@ -18,7 +18,7 @@ export function TestProvider({ children }) {
         setEmail,
       }}
     >
-      {children}
+      {props.children}
     </TestContext.Provider>
   );
 }

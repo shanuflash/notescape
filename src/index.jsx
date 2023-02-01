@@ -10,8 +10,6 @@ import Trash from "./components/Trash";
 
 import { TestProvider } from "./context/TestProvider";
 
-// import "aos/dist/aos.css";
-
 const router = createBrowserRouter([
   {
     path: "/",
