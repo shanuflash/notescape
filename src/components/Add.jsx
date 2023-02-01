@@ -1,5 +1,5 @@
 import React from "react";
-import { ImBin } from "react-icons/Im";
+import { FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export default function Add({ handleAdd, text, setText }) {
@@ -12,7 +12,7 @@ export default function Add({ handleAdd, text, setText }) {
         <Link to="trash">
           <button className="trash" onClick={handleTrash}>
             <div>Trash</div>
-            <ImBin />
+            <FaTrashAlt />
           </button>
         </Link>
         <input
