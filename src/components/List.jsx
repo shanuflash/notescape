@@ -1,11 +1,12 @@
 import { FaTrash, FaEdit } from "react-icons/fa";
+import { TiTick } from "react-icons/ti";
 import { toast } from "react-toastify";
 import { useState } from "react";
 
 export default function List({ User, Todo, setTodo, text, setText }) {
   const [Editable, setEditable] = useState(false);
   const [dex, setdex] = useState(-1);
-  // const [Edit, setEdit] = useState(second)
+  const [Edit, setEdit] = useState("");
   const handleDelete = (index) => {
     setTodo(Todo.filter((any, i) => i !== index));
   };
@@ -13,7 +14,7 @@ export default function List({ User, Todo, setTodo, text, setText }) {
     if (Editable) {
       const nextTodo = Todo.map((c, i) => {
         if (i === index) {
-          return text;
+          return Edit;
         } else {
           return c;
         }
@@ -33,7 +34,7 @@ export default function List({ User, Todo, setTodo, text, setText }) {
                   contentEditable={dex === index && Editable}
                   // onClick={(e) => setText(item)}
                   onInput={(e) => {
-                    setText((prev) => e.target.innerText);
+                    setEdit((prev) => e.target.innerText);
                   }}
                   key={item}
                   className="item"
@@ -49,18 +50,30 @@ export default function List({ User, Todo, setTodo, text, setText }) {
                     borderRight: "1px #c1e6ff solid",
                   }}
                   onClick={(e) => {
-                    setText(item);
-                    if (Editable) {
-                      handleEdit(index);
-                      setText("");
-                      setdex(-1);
-                    } else {
-                      setdex(index);
+                    if (Edit !== "" || Editable === false) setEdit(item);
+
+                    if (Edit !== "" && Editable) {
+                      if (index === dex) {
+                        handleEdit(index);
+                      } else if (index !== dex) {
+                        handleEdit(dex);
+                      }
+                      setEdit("");
+                      setEditable(true);
                     }
+                    dex === -1 ? setdex(index) : setdex(-1);
                     Editable ? setEditable(false) : setEditable(true);
                   }}
                 >
-                  <FaEdit />
+                  {Editable ? (
+                    index === dex ? (
+                      <TiTick />
+                    ) : (
+                      <FaEdit />
+                    )
+                  ) : (
+                    <FaEdit />
+                  )}
                 </button>
                 <button
                   className="item-button"

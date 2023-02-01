@@ -42,9 +42,13 @@ function App() {
 
   const handleAdd = (e) => {
     e.preventDefault();
-    setTodo((test) => [...test, text]);
-    toast.success("Note added!");
-    setText("");
+    if (text !== "") {
+      setTodo((test) => [...test, text]);
+      toast.success("Note added!");
+      setText("");
+    } else {
+      toast.error("Please enter note to add!");
+    }
   };
 
   const handleUpdate = async () => {
