@@ -3,7 +3,7 @@ import { TiTick } from "react-icons/ti";
 import { toast } from "react-toastify";
 import { useState } from "react";
 
-export default function List({ User, Todo, setTodo, text, setText }) {
+export default function List({ User, Todo, setTodo, handleData }) {
   const [Editable, setEditable] = useState(false);
   const [dex, setdex] = useState(-1);
   const [Edit, setEdit] = useState("");
@@ -50,8 +50,11 @@ export default function List({ User, Todo, setTodo, text, setText }) {
                     borderRight: "1px #c1e6ff solid",
                   }}
                   onClick={(e) => {
+                    if (Edit === "" && Editable) {
+                      Edit.forceUpdate();
+                      handleData();
+                    }
                     if (Edit !== "" || Editable === false) setEdit(item);
-
                     if (Edit !== "" && Editable) {
                       if (index === dex) {
                         handleEdit(index);
