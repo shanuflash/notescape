@@ -11,7 +11,7 @@ import "aos/dist/aos.css";
 
 /*
 --------------------------TODO----------------------------
-- Edit function
+- Trash function
 - Responsive (mobile)
 - User profile (change info, passwd reset, change email)
 ----------------------------------------------------------
