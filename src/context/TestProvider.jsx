@@ -14,7 +14,8 @@ export function TestProvider({ children }) {
   return (
     <TestContext.Provider
       value={{
-        Email: Email,
+        Email,
+        setEmail,
       }}
     >
       {children}
