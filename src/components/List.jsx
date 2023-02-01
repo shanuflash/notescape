@@ -3,7 +3,7 @@ import { TiTick } from "react-icons/ti";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import AOS from "aos";
-// import "aos/dist/aos.css";
+import "aos/dist/aos.css";
 
 export default function List({
   User,
@@ -46,7 +46,7 @@ export default function List({
                   onInput={(e) => {
                     setEdit((prev) => e.target.innerText);
                   }}
-                  // data-aos="fade-up"
+                  data-aos="fade-up"
                   key={item}
                   className="item"
                   style={{ border: dex === index ? "1px black solid" : "" }}
@@ -54,7 +54,7 @@ export default function List({
                   {item}
                 </div>
                 <button
-                  // data-aos="fade-up"
+                  data-aos="fade-up"
                   className="item-button"
                   style={{
                     borderRadius: "0",
@@ -91,7 +91,7 @@ export default function List({
                   )}
                 </button>
                 <button
-                  // data-aos="fade-up"
+                  data-aos="fade-up"
                   className="item-button"
                   onClick={() => {
                     handleDelete(item, index);

@@ -3,11 +3,12 @@ import supabase from "./supabase";
 import Add from "./components/Add";
 import List from "./components/List";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { FiLogOut, FiLogIn } from "react-icons/fi";
 import { toast } from "react-toastify";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { TestProvider } from "./context/TestProvider";
 
 /*
 --------------------------TODO----------------------------
@@ -20,10 +21,11 @@ import "aos/dist/aos.css";
 function App() {
   AOS.init();
   const [User, setUser] = useState(null);
-  const [Email, setEmail] = useState(null);
+  // const [Email, setEmail] = useState(null);
   const [Todo, setTodo] = useState([]);
   const [Trash, setTrash] = useState([]);
   const [text, setText] = useState("");
+  const { Email } = useContext(TestProvider);
 
   const handleLogout = async (e) => {
     e.preventDefault();
