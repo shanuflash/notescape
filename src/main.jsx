@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./components/Login";
+import Trash from "./components/Trash";
 // import "aos/dist/aos.css";
 
 const router = createBrowserRouter([
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/trash",
+    element: <Trash />,
   },
 ]);
 
