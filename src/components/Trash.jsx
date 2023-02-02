@@ -1,6 +1,16 @@
 import "../App.css";
+import { useContext } from "react";
+import { TestContext } from "../context/TestProvider";
 
 export default function Trash() {
+  const { Trash, setTrash, setText } = useContext(TestContext);
+  const handleTrash = () => {
+    e.preventDefault();
+    toast.success("Note added!");
+  };
+  const hadnleRestore = () => {
+    e.preventDefault();
+  };
   return (
     <>
       <>
@@ -9,18 +19,27 @@ export default function Trash() {
             Trash
           </div>
         </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-evenly",
-            fontSize: "3rem",
-            alignItems: "center",
-            letterSpacing: "3rem",
-          }}
-          className="list-container list-container-misc"
-        >
-          WIP
+        <div className="list-container list-container-misc">
+          {Trash.map((item, index) => (
+            <div className="item-container">
+              <div
+                // data-aos="fade-up"
+                className="item"
+              >
+                {item}
+              </div>
+              <button
+                // data-aos="fade-up"
+                className="item-button"
+                onClick={() => {
+                  hadnleRestore(item, index);
+                  toast.error("Note deleted!");
+                }}
+              >
+                {/* <FaTrash /> */}
+              </button>
+            </div>
+          ))}
         </div>
       </>
     </>
