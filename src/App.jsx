@@ -9,6 +9,7 @@ import AOS from "aos";
 
 /*
 --------------------------TODO----------------------------
+- Trash permadelete, Empty trash
 - Theme
 - Responsive (mobile)
 - User profile (passwd reset, change email, 2fa)
