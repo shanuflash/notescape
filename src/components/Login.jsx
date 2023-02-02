@@ -4,8 +4,10 @@ import supabase from "../supabase";
 import { Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { DataContext } from "../context/DataProvider";
+import AOS from "aos";
 
 export default function Login() {
+  AOS.init();
   const { User, setUser, Email, setEmail } = useContext(DataContext);
   const [Password, setPassword] = useState(null);
 
@@ -44,7 +46,7 @@ export default function Login() {
       {!User ? (
         <>
           <div className="head">
-            <div style={{}} className="title head-right">
+            <div style={{}} className="title head-right" data-aos="fade-right">
               Login / Sign Up
             </div>
           </div>

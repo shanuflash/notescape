@@ -7,7 +7,6 @@ import AOS from "aos";
 
 export default function Trash() {
   AOS.init();
-
   const { Trash, setTrash, setTodo } = useContext(DataContext);
   const handleRestore = (item, index) => {
     setTrash(Trash.filter((any, i) => i !== index));

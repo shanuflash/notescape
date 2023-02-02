@@ -32,7 +32,7 @@ export default function List({}) {
 
   return (
     <div>
-      <div className="list-container">
+      <div className="list-container" data-aos="fade-up">
         {User ? (
           <div className="list">
             {Todo.map((item, index) => (
