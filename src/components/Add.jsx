@@ -20,7 +20,7 @@ export default function Add() {
         <button type="submit" className="input-button" onClick={handleAdd}>
           +
         </button>
-        <Link style={{ textDecoration: "none" }} to="trash">
+        <Link style={{ textDecoration: "none", marginLeft: "2rem" }} to="trash">
           <button className="trash">
             <div>Trash</div>
             <FaTrashAlt />
