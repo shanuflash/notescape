@@ -7,8 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./components/Login";
 import Trash from "./components/Trash";
-
-import { TestProvider } from "./context/TestProvider";
+import { DataProvider } from "./context/DataProvider";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +26,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <TestProvider>
+    <DataProvider>
       <RouterProvider router={router} />
       <ToastContainer
         position="bottom-center"
@@ -41,6 +40,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         pauseOnHover
         theme="colored"
       />
-    </TestProvider>
+    </DataProvider>
   </StrictMode>
 );

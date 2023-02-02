@@ -2,11 +2,11 @@ import React, { useState, createContext, useEffect } from "react";
 import supabase from "../supabase";
 import { toast } from "react-toastify";
 
-export const TestContext = createContext();
+export const DataContext = createContext();
 // export function useTest() {
-//   return useContext(TestContext);
+//   return useContext(DataContext);
 // }
-export function TestProvider({ children }) {
+export function DataProvider({ children }) {
   const [User, setUser] = useState(null);
   const [Email, setEmail] = useState(null);
   const [Todo, setTodo] = useState([]);
@@ -87,7 +87,7 @@ export function TestProvider({ children }) {
   }, []);
 
   return (
-    <TestContext.Provider
+    <DataContext.Provider
       value={{
         User,
         setUser,
@@ -107,6 +107,6 @@ export function TestProvider({ children }) {
       }}
     >
       {children}
-    </TestContext.Provider>
+    </DataContext.Provider>
   );
 }

@@ -3,7 +3,7 @@ import Add from "./components/Add";
 import List from "./components/List";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { TestContext } from "./context/TestProvider";
+import { DataContext } from "./context/DataProvider";
 import { FiLogOut, FiLogIn } from "react-icons/fi";
 import AOS from "aos";
 
@@ -18,7 +18,7 @@ import AOS from "aos";
 
 function App() {
   AOS.init();
-  const { User, Email, handleLogout } = useContext(TestContext);
+  const { User, Email, handleLogout } = useContext(DataContext);
 
   return (
     <div className="App">

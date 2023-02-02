@@ -1,14 +1,14 @@
 import { FaTrash, FaEdit } from "react-icons/fa";
 import { TiTick } from "react-icons/ti";
 import { toast } from "react-toastify";
-import { TestContext } from "../context/TestProvider";
+import { DataContext } from "../context/DataProvider";
 import { useState, useContext } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function List({}) {
   const { User, Todo, setTodo, handleData, Trash, setTrash } =
-    useContext(TestContext);
+    useContext(DataContext);
   AOS.init();
   const [Editable, setEditable] = useState(false);
   const [dex, setdex] = useState(-1);

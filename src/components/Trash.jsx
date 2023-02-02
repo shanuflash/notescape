@@ -1,6 +1,6 @@
 import "../App.css";
 import { useContext } from "react";
-import { TestContext } from "../context/TestProvider";
+import { DataContext } from "../context/DataProvider";
 import { toast } from "react-toastify";
 import { FaTrashRestore } from "react-icons/fa";
 import AOS from "aos";
@@ -8,7 +8,7 @@ import AOS from "aos";
 export default function Trash() {
   AOS.init();
 
-  const { Trash, setTrash, setTodo } = useContext(TestContext);
+  const { Trash, setTrash, setTodo } = useContext(DataContext);
   const handleRestore = (item, index) => {
     setTrash(Trash.filter((any, i) => i !== index));
     setTodo((test) => [...test, item]);

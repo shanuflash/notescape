@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { TestContext } from "../context/TestProvider";
+import { DataContext } from "../context/DataProvider";
 
 export default function Add() {
-  const { handleAdd, text, setText } = useContext(TestContext);
+  const { handleAdd, text, setText } = useContext(DataContext);
   return (
     <div className="Add" data-aos="fade-down">
       <form className="form-container">
