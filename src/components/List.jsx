@@ -43,7 +43,7 @@ export default function List({}) {
                     setEdit((prev) => e.target.innerText);
                   }}
                   // data-aos="fade-up"
-                  key={item}
+                  key={index}
                   className="item"
                   style={{ border: dex === index ? "1px black solid" : "" }}
                 >

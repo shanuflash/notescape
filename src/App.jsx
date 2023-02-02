@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { TestContext } from "./context/TestProvider";
 import { FiLogOut, FiLogIn } from "react-icons/fi";
 import AOS from "aos";
-import "aos/dist/aos.css";
 
 /*
 --------------------------TODO----------------------------

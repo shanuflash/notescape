@@ -3,7 +3,6 @@ import supabase from "../supabase";
 import { toast } from "react-toastify";
 
 export const TestContext = createContext();
-
 // export function useTest() {
 //   return useContext(TestContext);
 // }
@@ -22,6 +21,7 @@ export function TestProvider({ children }) {
     setUser(null);
     setEmail(null);
     setTodo([]);
+    setTrash([]);
   };
 
   const handleData = async (e) => {
@@ -30,6 +30,7 @@ export function TestProvider({ children }) {
       .select("*")
       .eq("userid", User);
     setTodo(data[0].items);
+    setTrash(data[0].trash);
     if (error) toast.error(error.message);
   };
 
@@ -52,6 +53,14 @@ export function TestProvider({ children }) {
     if (error) toast.error(error.message);
   };
 
+  const handleTrashUpdate = async () => {
+    const { data, error } = await supabase
+      .from("todo")
+      .update([{ trash: Trash }])
+      .eq("userid", User);
+    if (error) toast.error(error.message);
+  };
+
   const handleSession = async (e) => {
     const { data, error } = await supabase.auth.getSession();
     if (error) toast.error(error.message);
@@ -62,6 +71,10 @@ export function TestProvider({ children }) {
   useEffect(() => {
     handleUpdate();
   }, [Todo]);
+
+  useEffect(() => {
+    handleTrashUpdate();
+  }, [Trash]);
 
   useEffect(() => {
     handleSession();

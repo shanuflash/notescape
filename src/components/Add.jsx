@@ -13,7 +13,7 @@ export default function Add() {
           value={text}
           type="text"
           name="todoinput"
-          autocomplete="off"
+          autoComplete="off"
           placeholder="Type here"
           onChange={(e) => setText((prev) => e.target.value)}
         />
