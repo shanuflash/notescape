@@ -37,10 +37,11 @@ div {
   gap: 1rem;
 }
 .trash {
+  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-right: 2rem;
+  margin-left: 2rem;
   background-color: #c1e6ff;
   border: none;
   padding: 1rem;

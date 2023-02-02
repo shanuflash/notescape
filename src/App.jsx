@@ -1,14 +1,12 @@
 import "./App.css";
-import supabase from "./supabase";
 import Add from "./components/Add";
 import List from "./components/List";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { useState, useEffect, useContext } from "react";
+import { TestContext } from "./context/TestProvider";
 import { FiLogOut, FiLogIn } from "react-icons/fi";
-import { toast } from "react-toastify";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { TestProvider } from "./context/TestProvider";
 
 /*
 --------------------------TODO----------------------------
@@ -20,71 +18,7 @@ import { TestProvider } from "./context/TestProvider";
 
 function App() {
   AOS.init();
-  const [User, setUser] = useState(null);
-  // const [Email, setEmail] = useState(null);
-  const [Todo, setTodo] = useState([]);
-  const [Trash, setTrash] = useState([]);
-  const [text, setText] = useState("");
-  const { Email, setEmail } = useContext(TestProvider);
-
-  const handleLogout = async (e) => {
-    e.preventDefault();
-    const { error } = await supabase.auth.signOut();
-    if (error) toast.error(error.message);
-    else toast.info("Successfully logged out!");
-    setUser(null);
-    setEmail(null);
-    setTodo([]);
-  };
-
-  const handleData = async (e) => {
-    const { data, error } = await supabase
-      .from("todo")
-      .select("*")
-      .eq("userid", User);
-    setTodo(data[0].items);
-    if (error) toast.error(error.message);
-  };
-
-  const handleAdd = (e) => {
-    e.preventDefault();
-    if (text !== "") {
-      setTodo((test) => [...test, text]);
-      toast.success("Note added!");
-      setText("");
-    } else {
-      toast.error("Please enter note to add!");
-    }
-  };
-
-  const handleUpdate = async () => {
-    const { data, error } = await supabase
-      .from("todo")
-      .update([{ items: Todo }])
-      .eq("userid", User);
-    if (error) toast.error(error.message);
-  };
-
-  const handleSession = async (e) => {
-    const { data, error } = await supabase.auth.getSession();
-    if (error) toast.error(error.message);
-    setUser(data.session.user.id);
-    setEmail(data.session.user.email);
-  };
-
-  useEffect(() => {
-    handleUpdate();
-  }, [Todo]);
-
-  useEffect(() => {
-    handleSession();
-    handleData();
-  }, [User]);
-
-  useEffect(() => {
-    handleSession();
-    handleData();
-  }, []);
+  const { User, Email, handleLogout } = useContext(TestContext);
 
   return (
     <div className="App">
@@ -123,8 +57,8 @@ function App() {
           </div>
         </div>
       </div>
-      <Add {...{ handleAdd, text, setText }} />
-      <List {...{ User, Todo, setTodo, handleData, Trash, setTrash }} />
+      <Add />
+      <List />
     </div>
   );
 }

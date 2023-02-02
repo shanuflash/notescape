@@ -1,20 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { TestContext } from "../context/TestProvider";
 
-export default function Add({ handleAdd, text, setText }) {
-  const handleTrash = (e) => {
-    // e.preventDefault();
-  };
+export default function Add() {
+  const { handleAdd, text, setText } = useContext(TestContext);
   return (
     <div className="Add" data-aos="fade-down">
       <form className="form-container">
-        <Link to="trash">
-          <button className="trash" onClick={handleTrash}>
-            <div>Trash</div>
-            <FaTrashAlt />
-          </button>
-        </Link>
         <input
           className="input"
           value={text}
@@ -24,9 +17,15 @@ export default function Add({ handleAdd, text, setText }) {
           placeholder="Type here"
           onChange={(e) => setText((prev) => e.target.value)}
         />
-        <button className="input-button" onClick={handleAdd}>
+        <button type="submit" className="input-button" onClick={handleAdd}>
           +
         </button>
+        <Link style={{ textDecoration: "none" }} to="trash">
+          <button className="trash">
+            <div>Trash</div>
+            <FaTrashAlt />
+          </button>
+        </Link>
       </form>
     </div>
   );

@@ -1,18 +1,14 @@
 import { FaTrash, FaEdit } from "react-icons/fa";
 import { TiTick } from "react-icons/ti";
 import { toast } from "react-toastify";
-import { useState } from "react";
+import { TestContext } from "../context/TestProvider";
+import { useState, useContext } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-export default function List({
-  User,
-  Todo,
-  setTodo,
-  handleData,
-  Trash,
-  setTrash,
-}) {
+export default function List({}) {
+  const { User, Todo, setTodo, handleData, Trash, setTrash } =
+    useContext(TestContext);
   AOS.init();
   const [Editable, setEditable] = useState(false);
   const [dex, setdex] = useState(-1);
@@ -46,7 +42,7 @@ export default function List({
                   onInput={(e) => {
                     setEdit((prev) => e.target.innerText);
                   }}
-                  data-aos="fade-up"
+                  // data-aos="fade-up"
                   key={item}
                   className="item"
                   style={{ border: dex === index ? "1px black solid" : "" }}
@@ -54,7 +50,7 @@ export default function List({
                   {item}
                 </div>
                 <button
-                  data-aos="fade-up"
+                  // data-aos="fade-up"
                   className="item-button"
                   style={{
                     borderRadius: "0",
@@ -91,7 +87,7 @@ export default function List({
                   )}
                 </button>
                 <button
-                  data-aos="fade-up"
+                  // data-aos="fade-up"
                   className="item-button"
                   onClick={() => {
                     handleDelete(item, index);

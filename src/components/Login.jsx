@@ -1,12 +1,12 @@
 import "../App.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import supabase from "../supabase";
 import { Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { TestContext } from "../context/TestProvider";
 
 export default function Login() {
-  const [User, setUser] = useState(null);
-  const [Email, setEmail] = useState(null);
+  const { User, setUser, Email, setEmail } = useContext(TestContext);
   const [Password, setPassword] = useState(null);
 
   const handleSignin = async (e) => {
