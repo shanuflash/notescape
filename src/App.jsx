@@ -9,9 +9,9 @@ import AOS from "aos";
 
 /*
 --------------------------TODO----------------------------
-- Trash function
+- Theme
 - Responsive (mobile)
-- User profile (change info, passwd reset, change email)
+- User profile (passwd reset, change email, 2fa)
 ----------------------------------------------------------
 */
 
