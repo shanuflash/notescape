@@ -7,7 +7,7 @@ function Modal({ handleEmptyTrash, isOpen, setisOpen }) {
         <div className="modal-text">Are you sure you want to empty trash?</div>
         <div className="modal-button">
           <button
-            className="input-button"
+            className="input-button-modal"
             onClick={() => {
               handleEmptyTrash();
               setisOpen(false);
@@ -15,7 +15,10 @@ function Modal({ handleEmptyTrash, isOpen, setisOpen }) {
           >
             Yes
           </button>
-          <button className="input-button" onClick={() => setisOpen(false)}>
+          <button
+            className="input-button-modal"
+            onClick={() => setisOpen(false)}
+          >
             No
           </button>
         </div>

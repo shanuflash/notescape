@@ -36,13 +36,13 @@ export default function Login() {
       const { error: err } = await supabase
         .from("todo")
         .insert({ items: [], userid: data.user.id });
-      toast.error("Unexpected error!");
+      toast.error("Unexpected error!", err);
       setUser(data.user.id);
     }
   };
 
   return (
-    <>
+    <div style={{ background: "black" }}>
       {!User ? (
         <>
           <div className="head">
@@ -53,12 +53,36 @@ export default function Login() {
           <div
             style={{
               display: "flex",
-              flexDirection: "row",
+              flexDirection: "column",
               justifyContent: "space-evenly",
             }}
             className="list-container list-container-misc"
             data-aos="fade-up"
           >
+            <div
+              className="welcome"
+              style={{
+                display: "flex",
+                fontSize: "4vw",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                color: "white",
+              }}
+            >
+              Welcome to Notes app!
+              <div
+                className="welcome"
+                style={{
+                  display: "flex",
+                  fontSize: "2vw",
+                  justifyContent: "center",
+                }}
+              >
+                Login or Sign up to continue.
+              </div>
+            </div>
+
             <form
               style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
               className="signin"
@@ -99,6 +123,6 @@ export default function Login() {
       ) : (
         <Navigate replace to="/" />
       )}
-    </>
+    </div>
   );
 }

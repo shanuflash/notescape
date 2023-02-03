@@ -7,7 +7,7 @@ export default function Add() {
   const { handleAdd, text, setText } = useContext(DataContext);
   return (
     <div className="Add" data-aos="fade-down">
-      <form className="form-container">
+      <form className="form-container" style={{ padding: "none" }}>
         <input
           className="input"
           value={text}
@@ -21,7 +21,10 @@ export default function Add() {
           +
         </button>
         <Link style={{ textDecoration: "none", marginLeft: "2rem" }} to="trash">
-          <button className="trash">
+          <button
+            className="trash"
+            style={{ border: "2px solid var(--highlight)" }}
+          >
             <div>Trash</div>
             <FaTrashAlt />
           </button>

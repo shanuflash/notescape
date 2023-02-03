@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
+:root {
+  /* --test: #36aeff; */
+  --highlight: #0098ff;
+  --darkc1: #001018;
+  --darkc2: #00334d;
+}
 div {
   font-family: "Montserrat", sans-serif;
 }
@@ -7,7 +12,7 @@ div {
 .App {
   overflow: hidden;
   height: 100vh;
-  background-color: whitesmoke;
+  background-color: black;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -15,7 +20,11 @@ div {
 
 .title {
   font-size: 2vw;
-  background-color: #c1e6ff;
+  color: white;
+  background-color: var(--darkc1);
+  /* border: 2px solid #36aeff; */
+  border: 2px solid var(--highlight);
+  border-width: 2px 2px 2px 0;
   border-radius: 2rem;
   display: flex;
   align-items: center;
@@ -28,7 +37,10 @@ div {
 .user {
   margin-right: 3rem;
   font-size: 2vw;
-  background-color: #c1e6ff;
+  background-color: var(--darkc1);
+  border: 2px solid var(--highlight);
+
+  color: #fff;
   border-radius: 2rem;
   padding: 0 0 0 1rem;
   display: flex;
@@ -42,7 +54,8 @@ div {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #c1e6ff;
+  background-color: var(--darkc2);
+  color: whitesmoke;
   border: none;
   padding: 1rem;
   border-radius: 2rem;
@@ -58,20 +71,24 @@ div {
 }
 
 .input {
+  color: white;
   padding: 0 0 0 1rem;
   border: none;
   border-radius: 2rem 0 0 2rem;
   height: 3rem;
   width: 60vw;
-  background-color: #c1e6ff;
+  background-color: var(--darkc1);
+  outline: 2px solid var(--highlight);
 }
 
 .input:focus {
-  /* outline: none; */
-  outline-color: #0099ff3f;
+  outline: 3px solid var(--highlight);
+  /* outline-color: var(--highlight); */
 }
 
 .input-misc {
+  background-color: var(--darkc2);
+  outline: none;
   height: 4rem;
   font-size: 2rem;
   width: 50vw;
@@ -86,11 +103,11 @@ div {
   border-radius: 2rem;
   height: 3rem;
   width: 25vw;
-  background-color: #36aeff;
+  background-color: var(--highlight);
 }
 
 form {
-  padding-top: 1rem;
+  /* padding-top: 1rem; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,17 +121,29 @@ form {
   border-radius: 0 2rem 2rem 0;
   height: 3rem;
   width: 5vw;
-  background-color: #36aeff;
+  background-color: var(--highlight);
+  outline: 2px solid var(--highlight);
+}
+.input-button-modal {
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  /* height: 3rem; */
+  width: 5vw;
+  background-color: var(--highlight);
+  outline: 2px solid var(--highlight);
 }
 
 .item-button {
   cursor: pointer;
-  color: white;
+  color: whitesmoke;
   border: none;
   border-radius: 0 1rem 1rem 0;
   /* height: 3rem; */
   width: 5vw;
-  background-color: #36aeff;
+  background-color: var(--highlight);
 }
 
 ::-webkit-scrollbar {
@@ -125,7 +154,7 @@ form {
   padding: 0 4px;
   border-top: 2rem solid transparent;
   border-bottom: 2rem solid transparent;
-  background-color: #36aeff;
+  background-color: var(--highlight);
   background-clip: padding-box;
   border-radius: 100px;
 }
@@ -137,15 +166,16 @@ form {
   height: 65vh;
   overflow: overlay;
   border-radius: 2rem 2rem 0 0;
-  background-color: #f1faff;
+  background-color: var(--darkc1);
   padding: 2rem 2rem 2rem 2rem;
-  border: 1px solid #36aeff;
+  border: 2px solid var(--highlight);
+  border-width: 2px 2px 0 2px;
 }
 
 .list-container-misc {
   margin-top: 2rem;
-  max-height: 76.6vh;
-  /* max-height: 76.6vh !important; */
+  height: 73.96vh;
+  /* max-height: 76.6vh; */
 }
 
 .list {
@@ -161,22 +191,39 @@ form {
 }
 
 .item {
-  /* height: 1rem; */
+  color: white;
   width: 90%;
   padding: 1rem;
-  background-color: #c1e6ff;
+  background-color: var(--darkc2);
   border-radius: 1rem 0 0 1rem;
 }
 
 .modal-container {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   margin: 1rem 2rem 1rem 2rem;
   border-radius: 2rem;
-  background-color: #c1e6ff;
+  border: 2px solid var(--highlight);
+  background-color: var(--darkc1);
   padding: 2rem;
 }
-
+.modal-button {
+  display: flex;
+  gap: 1rem;
+}
 .modal-text {
+  color: white;
   font-size: 1.5rem;
+}
+
+.item-button-misc {
+  font-size: 1rem;
+  cursor: pointer;
+  color: white;
+  border: none;
+  border-radius: 0 1rem 1rem 0;
+  /* height: 3rem; */
+  width: 5vw;
+  background-color: var(--highlight);
 }

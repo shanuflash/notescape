@@ -47,7 +47,7 @@ function App() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                background: "white",
+                background: "#00334d",
                 padding: "1rem",
                 borderRadius: "2rem",
               }}

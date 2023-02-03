@@ -1,15 +1,14 @@
 import { FaTrash, FaEdit } from "react-icons/fa";
 import { TiTick } from "react-icons/ti";
 import { toast } from "react-toastify";
+import { Navigate } from "react-router-dom";
 import { DataContext } from "../context/DataProvider";
 import { useState, useContext } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Modal from "./Modal";
 
 export default function List({}) {
-  const { User, Todo, setTodo, handleData, Trash, setTrash } =
-    useContext(DataContext);
+  const { User, Todo, setTodo, handleData, setTrash } = useContext(DataContext);
   AOS.init();
   const [Editable, setEditable] = useState(false);
   const [dex, setdex] = useState(-1);
@@ -55,7 +54,8 @@ export default function List({}) {
                   className="item-button"
                   style={{
                     borderRadius: "0",
-                    borderRight: "1px #c1e6ff solid",
+                    borderRight: "1px #001018 solid",
+                    borderLeft: "1px #001018 solid",
                   }}
                   onClick={(e) => {
                     if (Edit === "" && Editable) {
@@ -101,7 +101,7 @@ export default function List({}) {
             ))}
           </div>
         ) : (
-          <div>Login to continue</div>
+          <Navigate replace to="/Login" />
         )}
       </div>
     </div>
