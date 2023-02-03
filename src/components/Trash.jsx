@@ -2,25 +2,57 @@ import "../App.css";
 import { useContext } from "react";
 import { DataContext } from "../context/DataProvider";
 import { toast } from "react-toastify";
-import { FaTrashRestore } from "react-icons/fa";
+import { FaTrashRestore, FaTrash } from "react-icons/fa";
 import AOS from "aos";
+import Modal from "./Modal";
+import { useState } from "react";
 
 export default function Trash() {
   AOS.init();
   const { Trash, setTrash, setTodo } = useContext(DataContext);
+  const [isOpen, setisOpen] = useState(false);
+
   const handleRestore = (item, index) => {
     setTrash(Trash.filter((any, i) => i !== index));
     setTodo((test) => [...test, item]);
   };
+
+  const handleEmptyTrash = () => {
+    setTrash([]);
+    toast.error("Trash cleared!");
+  };
   return (
-    <>
+    <div style={{ height: "100vh" }}>
       <>
         <div className="head">
           <div className="title head-right" data-aos="fade-right">
             Trash (Beta)
           </div>
+          <div
+            data-aos="fade-left"
+            className="head-left"
+            style={{ display: "flex", alignItems: "center", marginTop: "1rem" }}
+          >
+            <div
+              className="emptytrash user"
+              // onClick={handleEmptyTrash}
+              onClick={() => {
+                setisOpen(!isOpen);
+              }}
+              style={{
+                fontSize: "1.5rem",
+                borderRadius: "2rem",
+                // marginRight: "2rem",
+                padding: "1rem 2rem 1rem 2rem",
+              }}
+            >
+              Clear Trash <FaTrash />
+            </div>
+          </div>
         </div>
-        <div className="list-container list-container-misc">
+        {isOpen && <Modal {...{ handleEmptyTrash, isOpen, setisOpen }} />}
+
+        <div className="list-container list-container-misc" data-aos="fade-up">
           <div className="list">
             {Trash.map((item, index) => (
               <div className="item-container">
@@ -45,6 +77,6 @@ export default function Trash() {
           </div>
         </div>
       </>
-    </>
+    </div>
   );
 }

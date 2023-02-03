@@ -36,6 +36,7 @@ div {
   justify-content: center;
   gap: 1rem;
 }
+
 .trash {
   text-decoration: none;
   display: flex;
@@ -48,6 +49,7 @@ div {
   font-size: 1rem;
   gap: 0.5rem;
 }
+
 .head {
   display: flex;
   flex-direction: row;
@@ -141,8 +143,9 @@ form {
 }
 
 .list-container-misc {
-  margin-top: 1rem;
-  height: 78.7vh !important;
+  margin-top: 2rem;
+  max-height: 76.6vh;
+  /* max-height: 76.6vh !important; */
 }
 
 .list {
@@ -163,4 +166,17 @@ form {
   padding: 1rem;
   background-color: #c1e6ff;
   border-radius: 1rem 0 0 1rem;
+}
+
+.modal-container {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem 2rem 1rem 2rem;
+  border-radius: 2rem;
+  background-color: #c1e6ff;
+  padding: 2rem;
+}
+
+.modal-text {
+  font-size: 1.5rem;
 }

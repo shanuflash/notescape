@@ -57,6 +57,7 @@ export default function Login() {
               justifyContent: "space-evenly",
             }}
             className="list-container list-container-misc"
+            data-aos="fade-up"
           >
             <form
               style={{ display: "flex", flexDirection: "column", gap: "1rem" }}

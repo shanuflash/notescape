@@ -5,6 +5,7 @@ import { DataContext } from "../context/DataProvider";
 import { useState, useContext } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Modal from "./Modal";
 
 export default function List({}) {
   const { User, Todo, setTodo, handleData, Trash, setTrash } =
