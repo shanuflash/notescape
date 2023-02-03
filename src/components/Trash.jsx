@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { Navigate } from "react-router-dom";
 import { FaTrashRestore, FaTrash } from "react-icons/fa";
 import AOS from "aos";
-import Modal from "./Modal";
+import Prompt from "./Prompt";
 import { useState } from "react";
 
 export default function Trash() {
@@ -56,7 +56,7 @@ export default function Trash() {
               </div>
             </div>
           </div>
-          {isOpen && <Modal {...{ handleEmptyTrash, isOpen, setisOpen }} />}
+          {isOpen && <Prompt {...{ handleEmptyTrash, isOpen, setisOpen }} />}
 
           <div
             className="list-container list-container-misc"

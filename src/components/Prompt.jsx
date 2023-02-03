@@ -1,6 +1,6 @@
 import React from "react";
 
-function Modal({ handleEmptyTrash, isOpen, setisOpen }) {
+function Prompt({ handleEmptyTrash, setisOpen }) {
   return (
     <>
       <div className="modal-container">
@@ -27,4 +27,4 @@ function Modal({ handleEmptyTrash, isOpen, setisOpen }) {
   );
 }
 
-export default Modal;
+export default Prompt;
