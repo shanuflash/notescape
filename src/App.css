@@ -2,9 +2,11 @@
 :root {
   /* --test: #36aeff; */
   /* --highlight: #0098ff; */
-  --highlight: #005b85;
+  --highlight: #006797;
   --darkc1: #001018;
   --darkc2: #00334d;
+  --lightc1: #001018;
+  --lightc2: #00334d;
 }
 div {
   font-family: "Montserrat", sans-serif;
@@ -91,7 +93,7 @@ div {
   background-color: var(--darkc2);
   outline: none;
   height: 4rem;
-  font-size: 2rem;
+  font-size: 2vw;
   width: 50vw;
   border-radius: 2rem;
 }

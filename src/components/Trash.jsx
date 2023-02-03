@@ -46,7 +46,7 @@ export default function Trash() {
                   setisOpen(!isOpen);
                 }}
                 style={{
-                  fontSize: "1.5rem",
+                  fontSize: "2vw",
                   borderRadius: "2rem",
                   // marginRight: "2rem",
                   padding: "1rem 2rem 1rem 2rem",
