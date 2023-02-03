@@ -76,7 +76,7 @@ div {
 
 .input {
   color: white;
-  padding: 0 0 0 1rem;
+  padding: 0 1rem 0 1rem;
   border: none;
   border-radius: 2rem 0 0 2rem;
   height: 3rem;
@@ -84,7 +84,6 @@ div {
   background-color: var(--darkc1);
   outline: 2px solid var(--highlight);
 }
-
 .input:focus {
   outline: 3px solid var(--highlight);
   /* outline-color: var(--highlight); */
@@ -231,7 +230,7 @@ form {
   width: 5vw;
   background-color: var(--highlight);
 }
-.empty-trash {
+.empty-item {
   height: 100%;
   gap: 3vw;
   display: flex;
@@ -239,5 +238,6 @@ form {
   align-items: center;
   justify-content: center;
   font-size: 3vw;
-  color: whitesmoke;
+  font-weight: 600;
+  color: var(--darkc2);
 }

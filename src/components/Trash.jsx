@@ -87,7 +87,7 @@ export default function Trash() {
                   ))}
                 </div>
               ) : (
-                <div className="empty-trash">
+                <div className="empty-item">
                   <FaTrashAlt
                     style={{
                       fontSize: "10vw",

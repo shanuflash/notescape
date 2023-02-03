@@ -107,7 +107,7 @@ export default function List({}) {
                 ))}
               </div>
             ) : (
-              <div className="empty-trash">
+              <div className="empty-item">
                 <FaSmileWink
                   style={{
                     fontSize: "10vw",

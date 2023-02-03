@@ -29,10 +29,10 @@ export default function Login() {
       email: Email,
       password: Password,
     });
-    setPassword(null);
     if (error) toast.error(error.message);
     else {
       toast.info("Successfully signed up!");
+      setPassword(null);
       const { error: err } = await supabase
         .from("todo")
         .insert({ items: [], userid: data.user.id });
