@@ -45,7 +45,9 @@ export default function List({}) {
                   // data-aos="fade-up"
                   key={index}
                   className="item"
-                  style={{ border: dex === index ? "1px black solid" : "" }}
+                  style={{
+                    border: dex === index ? "2px var(--highlight) solid" : "",
+                  }}
                 >
                   {item}
                 </div>
