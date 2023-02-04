@@ -1,7 +1,7 @@
 import "./App.css";
 import Add from "./components/Add";
 import List from "./components/List";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { DataContext } from "./context/DataProvider";
 import { FiLogOut, FiLogIn } from "react-icons/fi";
@@ -10,8 +10,7 @@ import AOS from "aos";
 
 /*
 --------------------------TODO----------------------------
-- Trash permadelete, Empty trash
-- Theme
+- Theme [WIP]
 - Responsive (mobile)
 - User profile (passwd reset, change email, 2fa)
 ----------------------------------------------------------
