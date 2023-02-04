@@ -59,9 +59,9 @@ function App() {
             >
               {User ? <FiLogOut onClick={handleLogout} /> : <FiLogIn />}
             </div>
-            <div>
+            {/* <div>
               <MdLightMode onClick={toggleTheme} />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
