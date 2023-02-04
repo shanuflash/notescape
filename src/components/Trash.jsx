@@ -10,7 +10,7 @@ import { useState } from "react";
 
 export default function Trash() {
   AOS.init();
-  const { Trash, setTrash, setTodo, User } = useContext(DataContext);
+  const { Trash, setTrash, setTodo, User, Theme } = useContext(DataContext);
   const [isOpen, setisOpen] = useState(false);
 
   const handleRestore = (item, index) => {

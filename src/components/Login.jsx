@@ -8,7 +8,7 @@ import AOS from "aos";
 
 export default function Login() {
   AOS.init();
-  const { User, setUser, Email, setEmail } = useContext(DataContext);
+  const { User, setUser, Email, setEmail, Theme } = useContext(DataContext);
   const [Password, setPassword] = useState(null);
 
   const handleSignin = async (e) => {

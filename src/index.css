@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 body {
+  background: black;
+  color: whitesmoke;
   --toastify-color-dark: #001018;
   margin: 0 !important;
   font-family: "Montserrat", sans-serif !important;

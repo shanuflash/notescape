@@ -1,10 +1,11 @@
 import "./App.css";
 import Add from "./components/Add";
 import List from "./components/List";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { DataContext } from "./context/DataProvider";
 import { FiLogOut, FiLogIn } from "react-icons/fi";
+import { MdLightMode } from "react-icons/md";
 import AOS from "aos";
 
 /*
@@ -18,12 +19,15 @@ import AOS from "aos";
 
 function App() {
   AOS.init();
-  const { User, Email, handleLogout } = useContext(DataContext);
-
+  const { User, Email, handleLogout, Theme, toggleTheme } =
+    useContext(DataContext);
   return (
-    <div className="App">
+    <div className={`App ${Theme}2`}>
       <div className="head">
-        <div className="title" data-aos="fade-right">
+        <div
+          className={`title ${Theme}`}
+          // data-aos="fade-right"
+        >
           Notes - (React & Supabase)
         </div>
         <div
@@ -31,7 +35,7 @@ function App() {
           className="head-left"
           style={{ display: "flex", alignItems: "center", marginTop: "1rem" }}
         >
-          <div className="user">
+          <div className={`user ${Theme}`}>
             {!User ? (
               <Link
                 style={{ textDecoration: "none", color: "black" }}
@@ -51,8 +55,12 @@ function App() {
                 padding: "1rem",
                 borderRadius: "2rem",
               }}
+              className={`${Theme}2`}
             >
               {User ? <FiLogOut onClick={handleLogout} /> : <FiLogIn />}
+            </div>
+            <div>
+              <MdLightMode onClick={toggleTheme} />
             </div>
           </div>
         </div>

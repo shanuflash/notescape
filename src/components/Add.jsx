@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import { DataContext } from "../context/DataProvider";
 
 export default function Add() {
-  const { handleAdd, text, setText } = useContext(DataContext);
+  const { handleAdd, text, setText, Theme } = useContext(DataContext);
   return (
     <div className="Add" data-aos="fade-down">
       <form className="form-container" style={{ padding: "none" }}>
         <input
-          className="input"
+          className={`input ${Theme}`}
           value={text}
           type="text"
           name="todoinput"
@@ -17,12 +17,16 @@ export default function Add() {
           placeholder="Type here"
           onChange={(e) => setText((prev) => e.target.value)}
         />
-        <button type="submit" className="input-button" onClick={handleAdd}>
+        <button
+          type="submit"
+          className={`input-button ${Theme}4`}
+          onClick={handleAdd}
+        >
           +
         </button>
         <Link style={{ textDecoration: "none", marginLeft: "2rem" }} to="trash">
           <button
-            className="trash"
+            className={`trash ${Theme}4`}
             style={{ border: "2px solid var(--highlight)" }}
           >
             <div>Trash</div>

@@ -12,6 +12,16 @@ export function DataProvider({ children }) {
   const [Todo, setTodo] = useState([]);
   const [Trash, setTrash] = useState([]);
   const [text, setText] = useState("");
+  const [Theme, setTheme] = useState("Dark");
+
+  const toggleTheme = (e) => {
+    e.preventDefault();
+    if (Theme === "Dark") {
+      setTheme((prev) => "Light");
+    } else {
+      setTheme((prev) => "Dark");
+    }
+  };
 
   const handleLogout = async (e) => {
     e.preventDefault();
@@ -99,6 +109,9 @@ export function DataProvider({ children }) {
         setTrash,
         text,
         setText,
+        Theme,
+        setTheme,
+        toggleTheme,
         handleLogout,
         handleAdd,
         handleData,

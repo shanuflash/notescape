@@ -1,14 +1,48 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.Dark {
+  background-color: var(--darkc1) !important;
+  color: whitesmoke !important;
+}
+
+.Light {
+  background-color: var(--lightc1) !important;
+  color: black !important;
+}
+
+.Light2 {
+  background-color: white !important;
+  color: black !important;
+}
+
+.Light3 {
+  background-color: var(--lightc2) !important;
+  color: black !important;
+}
+
+.Light4 {
+  background-color: var(--lightc3) !important;
+  color: black !important;
+}
+
+.Light5 {
+  background-color: var(--lightc3) !important;
+  color: white !important;
+}
+
+
 :root {
   /* --test: #36aeff; */
   /* --highlight: #0098ff; */
   --highlight: #006797;
   --darkc1: #001018;
   --darkc2: #00334d;
-  --lightc1: #001018;
-  --lightc2: #00334d;
+  --lightc1: #d0efff;
+  --lightc2: #8ed9ff;
+  --lightc3: #24b9ff;
   --toastify-color-dark: #001018;
 }
+
 div {
   font-family: "Montserrat", sans-serif;
 }
@@ -84,6 +118,7 @@ div {
   background-color: var(--darkc1);
   outline: 2px solid var(--highlight);
 }
+
 .input:focus {
   outline: 3px solid var(--highlight);
   /* outline-color: var(--highlight); */
@@ -127,6 +162,7 @@ form {
   background-color: var(--highlight);
   outline: 2px solid var(--highlight);
 }
+
 .input-button-modal {
   cursor: pointer;
   font-size: 1.5rem;
@@ -177,7 +213,7 @@ form {
 
 .list-container-misc {
   margin-top: 2rem;
-  height: 73.96vh;
+  height: 79vh;
   /* max-height: 76.6vh; */
 }
 
@@ -211,10 +247,12 @@ form {
   background-color: var(--darkc1);
   padding: 2rem;
 }
+
 .modal-button {
   display: flex;
   gap: 1rem;
 }
+
 .modal-text {
   color: white;
   font-size: 1.5rem;
@@ -230,6 +268,7 @@ form {
   width: 5vw;
   background-color: var(--highlight);
 }
+
 .empty-item {
   height: 100%;
   gap: 3vw;

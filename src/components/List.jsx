@@ -9,7 +9,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function List({}) {
-  const { User, Todo, setTodo, handleData, setTrash } = useContext(DataContext);
+  const { User, Todo, setTodo, handleData, setTrash, Theme } =
+    useContext(DataContext);
   AOS.init();
   const [Editable, setEditable] = useState(false);
   const [dex, setdex] = useState(-1);
@@ -34,8 +35,8 @@ export default function List({}) {
   return (
     <>
       {User ? (
-        <div>
-          <div className="list-container" data-aos="fade-up">
+        <div data-aos="fade-up">
+          <div className={`list-container ${Theme}`}>
             {Todo.length !== 0 ? (
               <div className="list">
                 {Todo.map((item, index) => (
@@ -47,7 +48,7 @@ export default function List({}) {
                       }}
                       // data-aos="fade-up"
                       key={index}
-                      className="item"
+                      className={`item ${Theme}3`}
                       style={{
                         border:
                           dex === index ? "2px var(--highlight) solid" : "",
@@ -57,7 +58,7 @@ export default function List({}) {
                     </div>
                     <button
                       // data-aos="fade-up"
-                      className="item-button"
+                      className={`item-button ${Theme}5`}
                       style={{
                         borderRadius: "0",
                         borderRight: "1px #001018 solid",
@@ -95,7 +96,7 @@ export default function List({}) {
                     </button>
                     <button
                       // data-aos="fade-up"
-                      className="item-button"
+                      className={`item-button ${Theme}5`}
                       onClick={() => {
                         handleDelete(item, index);
                         toast.error("Note deleted!");

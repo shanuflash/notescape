@@ -1,6 +1,6 @@
 import React from "react";
 
-function Prompt({ handleEmptyTrash, setisOpen }) {
+function Prompt({ handleEmptyTrash, setisOpen, Theme }) {
   return (
     <>
       <div className="modal-container">
