@@ -23,6 +23,14 @@ export function DataProvider({ children }) {
     }
   };
 
+  const handleSession = async (e) => {
+    const { data, error } = await supabase.auth.getSession();
+    if (error) toast.error(error.message);
+    setUser(data.session.user.id);
+    setEmail(data.session.user.email);
+    console.log("session");
+  };
+
   const handleLogout = async (e) => {
     e.preventDefault();
     const { error } = await supabase.auth.signOut();
@@ -32,6 +40,7 @@ export function DataProvider({ children }) {
     setEmail(null);
     setTodo([]);
     setTrash([]);
+    console.log("logout");
   };
 
   const handleData = async (e) => {
@@ -42,6 +51,7 @@ export function DataProvider({ children }) {
     setTodo(data[0].items);
     setTrash(data[0].trash);
     if (error) toast.error(error.message);
+    console.log("data");
   };
 
   const handleAdd = (e) => {
@@ -53,6 +63,7 @@ export function DataProvider({ children }) {
     } else {
       toast.error("Please enter note to add!");
     }
+    console.log("add");
   };
 
   const handleUpdate = async () => {
@@ -61,6 +72,7 @@ export function DataProvider({ children }) {
       .update([{ items: Todo }])
       .eq("userid", User);
     if (error) toast.error(error.message);
+    console.log("update");
   };
 
   const handleTrashUpdate = async () => {
@@ -69,14 +81,16 @@ export function DataProvider({ children }) {
       .update([{ trash: Trash }])
       .eq("userid", User);
     if (error) toast.error(error.message);
+    console.log("trashupdate");
   };
 
-  const handleSession = async (e) => {
-    const { data, error } = await supabase.auth.getSession();
-    if (error) toast.error(error.message);
-    setUser(data.session.user.id);
-    setEmail(data.session.user.email);
-  };
+  useEffect(() => {
+    handleSession();
+  }, []);
+
+  useEffect(() => {
+    handleData();
+  }, [User]);
 
   useEffect(() => {
     handleUpdate();
@@ -85,16 +99,6 @@ export function DataProvider({ children }) {
   useEffect(() => {
     handleTrashUpdate();
   }, [Trash]);
-
-  useEffect(() => {
-    handleSession();
-    handleData();
-  }, [User]);
-
-  useEffect(() => {
-    handleSession();
-    handleData();
-  }, []);
 
   return (
     <DataContext.Provider

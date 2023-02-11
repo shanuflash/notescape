@@ -23,10 +23,7 @@ function App() {
   return (
     <div className={`App ${Theme}2`}>
       <div className="head">
-        <div
-          className={`title ${Theme}`}
-          // data-aos="fade-right"
-        >
+        <div className={`title ${Theme}`} data-aos="fade-right">
           Notes - (React & Supabase)
         </div>
         <div
